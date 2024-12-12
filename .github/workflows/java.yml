@@ -36,4 +36,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/PizzabyteLLC/images:java_${{ matrix.version }}-${{ matrix.vendor }}
+            ghcr.io/pizzabytellc/images:java_${{ matrix.version }}-${{ matrix.vendor }}
