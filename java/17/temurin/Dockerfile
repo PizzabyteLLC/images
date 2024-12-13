@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:17-jdk-noble
+FROM        eclipse-temurin:17-jdk-noble
 
 LABEL       author="Garrett Summerfield" maintainer="garrett@pizzabyte.net"
 

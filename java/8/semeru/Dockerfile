@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH ibm-semeru-runtimes:open-8-jdk
+FROM        ibm-semeru-runtimes:open-8-jdk
 
 LABEL       author="Garrett Summerfield" maintainer="garrett@pizzabyte.net"
 
