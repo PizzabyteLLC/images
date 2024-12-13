@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [8, 11, 16, 17, 21]
+        version: [8, 11, 17, 21]
         vendor: [temurin, semeru]
 
     steps:

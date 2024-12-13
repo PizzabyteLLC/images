@@ -18,11 +18,6 @@ Currently built versions with their vendors are:
     * `ghcr.io/pizzabytellc/images:java_11-temurin`
   * [`java11-semeru`](/java/11/semeru/Dockerfile)
     * `ghcr.io/pizzabytellc/images:java_11-semeru`
-* [`java16`](/java/16/)
-  * [`java16-temurin`](/java/16/temurin/Dockerfile)
-    * `ghcr.io/pizzabytellc/images:java_16-temurin`
-  * [`java16-semeru`](/java/16/semeru/Dockerfile)
-    * `ghcr.io/pizzabytellc/images:java_16-semeru`
 * [`java17`](/java/17/)
   * [`java17-temurin`](/java/17/temurin/Dockerfile)
     * `ghcr.io/pizzabytellc/images:java_17-temurin`
