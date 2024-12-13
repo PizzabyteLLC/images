@@ -1,4 +1,4 @@
-FROM        eclipse-temurin:16-jdk-focal
+FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:16-jdk-focal
 
 LABEL       author="Garrett Summerfield" maintainer="garrett@pizzabyte.net"
 

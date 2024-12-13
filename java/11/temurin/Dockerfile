@@ -1,4 +1,4 @@
-FROM        eclipse-temurin:11-jdk-noble
+FROM        --platform=$TARGETOS/$TARGETARCH eclipse-temurin:11-jdk-noble
 
 LABEL       author="Garrett Summerfield" maintainer="garrett@pizzabyte.net"
 

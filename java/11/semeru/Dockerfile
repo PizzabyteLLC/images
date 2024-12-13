@@ -1,4 +1,4 @@
-FROM        ibm-semeru-runtimes:open-11-jdk
+FROM        --platform=$TARGETOS/$TARGETARCH ibm-semeru-runtimes:open-11-jdk
 
 LABEL       author="Garrett Summerfield" maintainer="garrett@pizzabyte.net"
 
