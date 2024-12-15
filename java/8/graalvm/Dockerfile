@@ -23,9 +23,9 @@ RUN         apt update -y \
                 libstdc++6
 
 # Install GraalVM
-RUN         case ${TARGETPLATFORM} in \
-                "linux/amd64")  ARCH=amd64  ;; \
-                "linux/arm64")  ARCH=aarch64  ;; \
+RUN         case $"TARGETPLATFORM" in \
+                "linux/amd64")  ARCH="amd64"  ;; \
+                "linux/arm64")  ARCH="aarch64"  ;; \
             && esac \
             && curl -sL https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-21.2.0/graalvm-ce-java8-linux-${ARCH}-21.2.0.tar.gz -o graalvm.tar.gz; \
             && tar -xzf graalvm.tar.gz -C /opt \
