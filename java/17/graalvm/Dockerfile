@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/graalvm-ce:java17
+FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/graalvm-community:17
 
 LABEL       author="Garrett Summerfield" maintainer="garrett@pizzabyte.net"
 
