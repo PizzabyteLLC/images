@@ -1,21 +1,54 @@
-FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/graalvm/graalvm-community:21.0.2
+FROM        --platform=$TARGETOS/$TARGETARCH ubuntu:noble
 
 LABEL       author="Garrett Summerfield" maintainer="garrett@pizzabyte.net"
 
 LABEL       org.opencontainers.image.source="https://github.com/PizzabyteLLC/images"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         microdnf update \
-            && microdnf install -y curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute gcc gcc-c++ freetype libstdc++ lsof glibc-locale-source glibc-langpack-en \
-            && microdnf clean all
+ARG         TARGETPLATFORM
+ARG         GRAAL_VERSION=21.0.2
+ARG         JAVA_VERSION=21
+
+RUN         apt update \
+            && apt install -y \
+                curl \
+                lsof \
+                ca-certificates \
+                openssl \
+                git \
+                tar \
+                sqlite3 \
+                fontconfig \
+                tzdata \
+                iproute2 \
+                libfreetype6 \
+                tini \
+                zip \
+                unzip \
+                libstdc++6
+
+
+RUN         case ${TARGETPLATFORM} in \
+                "linux/amd64")  ARCH=x64  ;; \
+                "linux/arm64")  ARCH=aarch64  ;; \
+                esac \
+            && curl --retry 3 -Lfso /tmp/graalvm.tar.gz https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-${GRAAL_VERSION}/graalvm-community-jdk-${GRAAL_VERSION}_linux-${ARCH}_bin.tar.gz \
+            && mkdir -p /opt/java/graalvm \
+            && cd /opt/java/graalvm \
+            && tar -xf /tmp/graalvm.tar.gz --strip-components=1 \
+            && export PATH="/opt/java/graalvm/bin:$PATH" \
+            && rm -rf /var/lib/apt/lists/* \
+            && rm -rf /tmp/graalvm.tar.gz
 
 ## Setup user and working directory
-RUN         adduser --home-dir /home/container container
+RUN         useradd -m -d /home/container container
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 STOPSIGNAL SIGINT
 
-COPY        --chown=container:container ./../../entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/bash", "/entrypoint.sh"]
+##COPY        --chown=container:container ./../../entrypoint.sh /entrypoint.sh
+##RUN         chmod +x /entrypoint.sh
+##ENTRYPOINT    ["/usr/bin/tini", "-g", "--"]
+##CMD         ["/entrypoint.sh"]
