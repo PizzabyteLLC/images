@@ -11,6 +11,8 @@ Currently built versions with their vendors are Eclipse Temurin, IBM Semeru, and
 > [!NOTE]
 >
 > Make sure of which image you use, as performance and stability can vary between vendors. We recommend Eclispe Temurin as the best baseline for any Java-based image.
+>
+> All images are built for `linux/amd64` and `linux/arm64` ***EXCEPT*** for `java_8-graalvm` ARM64 versions of GraalVM CE don't exist for Java 8.
 
 * [`java8`](/java/8/)
   * [`java8-temurin`](/java/8/temurin/Dockerfile)
