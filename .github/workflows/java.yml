@@ -10,18 +10,13 @@ on:
       - java/**
 jobs:
   push:
-    name: "images:java_${{ matrix.version }}-${{ matrix.vendor }}-${{ matrix.platform }}"
+    name: "images:java_${{ matrix.version }}-${{ matrix.vendor }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         version: [8, 11, 17, 21]
         vendor: [temurin, semeru, graalvm]
-        platform: [linux/amd64, linux/arm64]
-        exclude:
-          - version: 8
-            vendor: graalvm
-            platform: linux/arm64
 
     steps:
       - uses: actions/checkout@v4
@@ -38,7 +33,7 @@ jobs:
         with:
           context: ./java
           file: ./java/${{ matrix.version }}/${{ matrix.vendor }}/Dockerfile
-          platforms: ${{ matrix.platform }}
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/pizzabytellc/images:java_${{ matrix.version }}-${{ matrix.vendor }}
