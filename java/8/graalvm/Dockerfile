@@ -27,7 +27,7 @@ RUN         apt update \
                 unzip \
                 libstdc++6
 
-RUN         curl --retry 3 -Lfso /tmp/graalvm.tar.gz https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-${ARCH}-${GRAAL_VERSION}.tar.gz \
+RUN         curl --retry 3 -Lfso /tmp/graalvm.tar.gz https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-${GRAAL_VERSION}/graalvm-ce-java${JAVA_VERSION}-linux-amd64-${GRAAL_VERSION}.tar.gz \
             && mkdir -p /opt/java/graalvm \
             && cd /opt/java/graalvm \
             && tar -xf /tmp/graalvm.tar.gz --strip-components=1 \
