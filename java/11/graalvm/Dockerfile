@@ -39,6 +39,9 @@ RUN         case ${TARGETPLATFORM} in \
             && rm -rf /var/lib/apt/lists/* \
             && rm -rf /tmp/graalvm.tar.gz
 
+ENV        JAVA_HOME=/opt/java/graalvm
+ENV        PATH="$PATH:/opt/java/graalvm/bin"
+
 ## Setup user and working directory
 RUN         useradd -m -d /home/container container
 USER        container

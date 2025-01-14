@@ -35,6 +35,9 @@ RUN         curl --retry 3 -Lfso /tmp/graalvm.tar.gz https://github.com/graalvm/
             && rm -rf /var/lib/apt/lists/* \
             && rm -rf /tmp/graalvm.tar.gz
 
+ENV        JAVA_HOME=/opt/java/graalvm
+ENV        PATH="$PATH:/opt/java/graalvm/bin"
+
 ## Setup user and working directory
 RUN         useradd -m -d /home/container container
 USER        container
