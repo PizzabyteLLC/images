@@ -42,6 +42,13 @@ Currently built versions with their vendors are Eclipse Temurin, IBM Semeru, and
     * `ghcr.io/pizzabytellc/images:java_21-semeru`
   * [`java21-graalvm`](/java/21/graalvm/Dockerfile)
     * `ghcr.io/pizzabytellc/images:java_21-graalvm`
+* [`java25`](/java/25/)
+  * [`java25-temurin`](/java/25/temurin/Dockerfile)
+    * `ghcr.io/pizzabytellc/images:java_25-temurin`
+  * [`java25-semeru`](/java/25/semeru/Dockerfile)
+    * `ghcr.io/pizzabytellc/images:java_25-semeru`
+  * [`java25-graalvm`](/java/25/graalvm/Dockerfile)
+    * `ghcr.io/pizzabytellc/images:java_25-graalvm`
 
 ### [Installation Images](/installers)
 
